@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const UserModel = require("../models/user.model");
 
 class UserService {
@@ -11,22 +11,14 @@ class UserService {
   }
 
   async findOne(query = {}) {
-    try {
-      const user = await UserModel.findOne(query);
-      return user;
-    } catch (err) {
-      console.log(err);
-    }
+    const user = await UserModel.findOne(query);
+    return user;
   }
 
   async createOne(user) {
-    try {
-      const newUser = new UserModel(user);
-      const resultSaveUser = await newUser.save();
-      return resultSaveUser;
-    } catch (err) {
-      console.log(err);
-    }
+    const newUser = new UserModel(user);
+    const resultSaveUser = await newUser.save();
+    return resultSaveUser;
   }
 }
 
